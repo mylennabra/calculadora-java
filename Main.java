@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 public class Main extends JFrame implements ActionListener{ 
 
     // l para Label e Nome com N maiúsculo.... Criar objeto com nome parecido com aquilo que será usado
-    JLabel lValor1, lValor2, lResult;
-    JTextField tfValor1, tfValor2, tfResult;
-    JButton bSoma, bSub, bLimpar, bSair;
+    JLabel lValor1, lValor2, lValor3, lResult;
+    JTextField tfValor1, tfValor2, tfValor3, tfResult;
+    JButton bPoten, bMultP, bDivP, bLimpar, bSair;
     JTextArea taHistorico; 
     JCheckBox cbHistorico;
 
@@ -31,6 +31,8 @@ public class Main extends JFrame implements ActionListener{
         tfValor1.setToolTipText("Inserir o 1° valor"); // Adicionando descrição on hover
         lValor2 = new JLabel("Potencia: "); 
         tfValor2 = new JTextField(5); 
+        lValor3 = new JLabel("Segunda potencia: "); 
+        tfValor3 = new JTextField(5); 
 
         lResult = new JLabel("Resultado: "); 
         tfResult = new JTextField(10); 
@@ -41,6 +43,8 @@ public class Main extends JFrame implements ActionListener{
         add(tfValor1); // Adicionando o objeto na frame
         add(lValor2); 
         add(tfValor2); 
+        add(lValor3); 
+        add(tfValor3); 
         add(lResult); 
         add(tfResult); 
         
@@ -55,13 +59,15 @@ public class Main extends JFrame implements ActionListener{
         taHistorico.setEditable(false);
         cbHistorico = new JCheckBox("Memorizar");
         
-        bSoma.addActionListener(this);
-        bSub.addActionListener(this);
+        bPoten.addActionListener(this);
+        bMultP.addActionListener(this);
+        bDivP.addActionListener(this);
         bLimpar.addActionListener(this);
         bSair.addActionListener(this);
         
-        add(bSoma);
-        add(bSub);
+        add(bPoten);
+        add(bMultP);
+        add(bDivP);
         add(bLimpar);
         add(bSair);
         add(taHistorico);
@@ -93,21 +99,36 @@ public class Main extends JFrame implements ActionListener{
             double result = c.potencia(number,power);
 
             tfResult.setText(""+result); //parte que vai gravar no historico, copiar esse bloco em todos
-                if(cbHistorico.isSelected()){
-                    taHistorico.setText(taHistorico.getText() + number+"^"+power+"="+result + "\n");
-                }
+            if(cbHistorico.isSelected()){
+                taHistorico.setText(taHistorico.getText() + number+"^"+power+"="+result + "\n");
+            }
         }
+
         if(ae.getSource()==bMultP){
-            
+            int number = Integer.parseInt(tfValor1.getText());
+            int power  = Integer.parseInt(tfValor2.getText());
+            int power2  = Integer.parseInt(tfValor3.getText());
+
+            int result = c.multPot(number,power, power2);
+
+            tfResult.setText(""+number+"^"+result); //parte que vai gravar no historico, copiar esse bloco em todos
+            if(cbHistorico.isSelected()){
+                taHistorico.setText(taHistorico.getText() + number+"^"+power+"x"+number+"^"+power2+" = "+number+"^"+ result+"\n");
+            }
         }
 
-        if(ae.getSource()==bPoten){
+        if(ae.getSource()==bDivP){
+            int number = Integer.parseInt(tfValor1.getText());
+            int power  = Integer.parseInt(tfValor2.getText());
+            int power2  = Integer.parseInt(tfValor3.getText());
 
+            int result = c.divPot(number,power, power2);
+
+            tfResult.setText(""+number+"^"+result); //parte que vai gravar no historico, copiar esse bloco em todos
+            if(cbHistorico.isSelected()){
+                taHistorico.setText(taHistorico.getText() + number+"^"+power+"x"+number+"^"+power2+" = "+number+"^"+ result+"\n");
+            }
         }
-
-
-
-
 
     }
 }
