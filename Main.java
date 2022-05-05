@@ -89,6 +89,7 @@ public class Main extends JFrame implements ActionListener{
         if(ae.getSource()==bLimpar){
             tfValor1.setText("");
             tfValor2.setText("");
+            tfValor3.setText("");
             tfResult.setText("");
             taHistorico.setText("");
         }
@@ -98,20 +99,20 @@ public class Main extends JFrame implements ActionListener{
 
             double result = c.potencia(number,power);
 
-            tfResult.setText(""+result); //parte que vai gravar no historico, copiar esse bloco em todos
+            tfResult.setText(""+result); //parte que vai gravar no historico
             if(cbHistorico.isSelected()){
                 taHistorico.setText(taHistorico.getText() + number+"^"+power+"="+result + "\n");
             }
         }
 
         if(ae.getSource()==bMultP){
-            int number = Integer.parseInt(tfValor1.getText());
+            int number = Integer.parseInt(tfValor1.getText()); //pegando valores
             int power  = Integer.parseInt(tfValor2.getText());
             int power2  = Integer.parseInt(tfValor3.getText());
 
-            int result = c.multPot(number,power, power2);
+            int result = c.multPot(number,power, power2); // usando a função 
 
-            tfResult.setText(""+number+"^"+result); //parte que vai gravar no historico, copiar esse bloco em todos
+            tfResult.setText(""+number+"^"+result); //parte que vai gravar no historico
             if(cbHistorico.isSelected()){
                 taHistorico.setText(taHistorico.getText() + number+"^"+power+"x"+number+"^"+power2+" = "+number+"^"+ result+"\n");
             }
@@ -124,7 +125,7 @@ public class Main extends JFrame implements ActionListener{
 
             int result = c.divPot(number,power, power2);
 
-            tfResult.setText(""+number+"^"+result); //parte que vai gravar no historico, copiar esse bloco em todos
+            tfResult.setText(""+number+"^"+result); //parte que vai gravar no historico
             if(cbHistorico.isSelected()){
                 taHistorico.setText(taHistorico.getText() + number+"^"+power+"x"+number+"^"+power2+" = "+number+"^"+ result+"\n");
             }

@@ -16,9 +16,4 @@ public class Calculadora {
 
 
 
-    // public String div(double x, double y) {
-    //     double z = x/y;
-    //     DecimalFormat fmt = new DecimalFormat("0.00");
-    //     return fmt.format(z);
-    // }
 }
