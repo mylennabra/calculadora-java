@@ -9,7 +9,7 @@ public class Main extends JFrame implements ActionListener{
     // l para Label e Nome com N maiúsculo.... Criar objeto com nome parecido com aquilo que será usado
     JLabel lValor1, lValor2, lValor3, lResult;
     JTextField tfValor1, tfValor2, tfValor3, tfResult;
-    JButton bPoten, bMultP, bDivP, bLimpar, bSair;
+    JButton bPoten, bMultP, bDivP, bLimpar, bSair, miSobre;
     JTextArea taHistorico; 
     JCheckBox cbHistorico;
 
@@ -55,6 +55,8 @@ public class Main extends JFrame implements ActionListener{
         bDivP = new JButton("Dividir potencias");
         bLimpar = new JButton("Limpar");
         bSair = new JButton("Sair");
+        // !!-----------------kkjkj
+        miSobre = new JButton("Sobre");
         taHistorico = new JTextArea(15,15);
         taHistorico.setEditable(false);
         cbHistorico = new JCheckBox("Memorizar");
@@ -64,6 +66,7 @@ public class Main extends JFrame implements ActionListener{
         bDivP.addActionListener(this);
         bLimpar.addActionListener(this);
         bSair.addActionListener(this);
+        miSobre.addActionListener(this);
         
         add(bPoten);
         add(bMultP);
@@ -72,6 +75,8 @@ public class Main extends JFrame implements ActionListener{
         add(bSair);
         add(taHistorico);
         add(cbHistorico);
+        // !!-----------------kkjkj
+        add(miSobre);
 
     }
 
@@ -129,6 +134,9 @@ public class Main extends JFrame implements ActionListener{
             if(cbHistorico.isSelected()){
                 taHistorico.setText(taHistorico.getText() + number+"^"+power+"x"+number+"^"+power2+" = "+number+"^"+ result+"\n");
             }
+        }
+        if(ae.getSource()==miSobre){
+            new Sobre();
         }
 
     }
