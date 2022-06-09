@@ -16,14 +16,31 @@ public class Main extends JFrame implements ActionListener{
     Calculadora c = new Calculadora(); // Adicionando classe Calculadora como escopo global 
 
 
-
-
     public Main(){ // Método construtor
         
         setLayout(new FlowLayout(FlowLayout.CENTER)); // Organiza layout 
         setSize(500, 500); // Define tamanho do frame
         setVisible(true); // Torna o frame visivel
         setTitle("Calculadora"); // Definindo título pra janela 
+
+        // Criando barra
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+        // Adicionando itens
+        JMenu versionMenu = new JMenu("Info");
+        JMenu sobreMenu = new JMenu("Mais");
+        // Adicionando itens ao frame
+        menuBar.add(versionMenu);
+        menuBar.add(sobreMenu);
+        // Adicionando subitens aos itens da bar
+        JMenuItem authorAction = new JMenuItem("Mylenna");
+        JMenuItem versionAction = new JMenuItem("V 1.0 - 2022");
+        JMenuItem sobreAction = new JMenuItem("Clique para saber mais");
+
+        versionMenu.add(authorAction);
+        versionMenu.addSeparator();
+        versionMenu.add(versionAction);
+        sobreMenu.add(sobreAction);
 
         lValor1 = new JLabel("Base: "); // Criação do objeto
         tfValor1 = new JTextField(5); // Criação do objeto
@@ -138,6 +155,5 @@ public class Main extends JFrame implements ActionListener{
         if(ae.getSource()==miSobre){
             new Sobre();
         }
-
     }
 }
