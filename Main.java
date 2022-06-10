@@ -44,7 +44,6 @@ public class Main extends JFrame implements ActionListener{
 
         lValor1 = new JLabel("Base: "); // Criação do objeto
         tfValor1 = new JTextField(5); // Criação do objeto
-        tfValor1.requestFocus(true);
         tfValor1.setToolTipText("Inserir o 1° valor"); // Adicionando descrição on hover
         lValor2 = new JLabel("Potencia: "); 
         tfValor2 = new JTextField(5); 
@@ -132,7 +131,7 @@ public class Main extends JFrame implements ActionListener{
             int power  = Integer.parseInt(tfValor2.getText());
             int power2  = Integer.parseInt(tfValor3.getText());
 
-            int result = c.multPot(number,power, power2); // usando a função 
+            int result = c.multPot(power, power2); // usando a função 
 
             tfResult.setText(""+number+"^"+result); //parte que vai gravar no historico
             if(cbHistorico.isSelected()){
@@ -145,7 +144,7 @@ public class Main extends JFrame implements ActionListener{
             int power  = Integer.parseInt(tfValor2.getText());
             int power2  = Integer.parseInt(tfValor3.getText());
 
-            int result = c.divPot(number,power, power2);
+            int result = c.divPot(power, power2);
 
             tfResult.setText(""+number+"^"+result); //parte que vai gravar no historico
             if(cbHistorico.isSelected()){
