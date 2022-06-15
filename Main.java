@@ -39,6 +39,7 @@ public class Main extends JFrame implements ActionListener{
         setSize(500, 500); // Define tamanho do frame
         setVisible(true); // Torna o frame visivel
         setTitle("Calculadora"); // Definindo título pra janela 
+        setLocationRelativeTo(null);
 
         // Adicionando itens ao frame
         setJMenuBar(mbmenuBar);
