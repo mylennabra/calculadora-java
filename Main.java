@@ -24,8 +24,8 @@ public class Main extends JFrame implements ActionListener{
     JMenuItem sobreAction = new JMenuItem("Clique para saber mais");
 
     JComboBox cbEstado, cbCidade;
-    String[] ma = { "", "Imperatriz", "Açailândia", "São Luis" };
-    String[] pa = { "", "Belém", "Marabá", "Satarém" };
+    String[] ma = { "", "Imperatriz", "Açailandia", "Sao Luis" };
+    String[] pa = { "", "Belem", "Marabaá", "Satarem" };
     String[] pi = { "", "Canto da Serra", "Bom Jesus", "Floriano" };
  
     
@@ -51,11 +51,12 @@ public class Main extends JFrame implements ActionListener{
         versionMenu.add(versionAction);
         sobreMenu.add(sobreAction);
 
-        lValor1 = new JLabel("Base: "); // Criação do objeto
+        lValor1 = new JLabel("Numero 1: "); // Criação do objeto
         tfValor1 = new JTextField(5); // Criação do objeto
-        tfValor1.setToolTipText("Inserir o 1° valor"); // Adicionando descrição on hover
-        lValor2 = new JLabel("Potencia: "); 
+        tfValor1.setToolTipText("Inserir o 1o valor"); // Adicionando descrição on hover
+        lValor2 = new JLabel("Numero 2: "); 
         tfValor2 = new JTextField(5); 
+        tfValor2.setToolTipText("Inserir o 2o valor"); // Adicionando descrição on hover
 
 
         lResult = new JLabel("Resultado: "); 
@@ -70,7 +71,7 @@ public class Main extends JFrame implements ActionListener{
         add(lResult); 
         add(tfResult); 
 
-        String[] estado = { "", "Maranhão", "Pará", "Piauí" };
+        String[] estado = { "", "Maranhao", "Para", "Piaui" };
         cbEstado = new JComboBox(estado);
         cbEstado.addActionListener(this);
         add(cbEstado);
